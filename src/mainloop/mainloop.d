@@ -17,6 +17,7 @@ import basics.alleg5;
 import basics.globals;
 import file.filename; // running levels from the command-line
 import file.log; // logging uncaught Exceptions
+import file.option;
 import hardware.display;
 import hardware.keyboard;
 import mainloop.topscrn.base;
@@ -78,7 +79,12 @@ public:
         hardware.display .calc();
         hardware.mouse   .calc();
         hardware.keyboard.calcCallThisAfterMouseCalc();
-
+        
+		if (keyUntrapMouse.keyTapped)
+		{
+			hardware.mouse.trapMouse = false;
+		}
+		
         if (hardware.display.displayCloseWasClicked()
             || shiftHeld() && keyTapped(ALLEGRO_KEY_ESCAPE)
         ) {
@@ -108,7 +114,6 @@ public:
 
     private void takeScreenshot()
     {
-        import file.option;
         import hardware.scrshot;
         if (! keyScreenshot.keyTapped)
             return;

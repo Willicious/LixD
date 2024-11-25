@@ -135,6 +135,7 @@ UserOption!KeySet
     keyZoomIn,
     keyZoomOut,
     keyScreenshot,
+	keyUntrapMouse,
 
     keyForceLeft,
     keyForceRight,
@@ -363,6 +364,8 @@ do {
     keyZoomIn = newKey("keyZoomIn", Lang.optionKeyZoomIn, hardware.keyenum.keyWheelUp);
     keyZoomOut = newKey("keyZoomOut", Lang.optionKeyZoomOut, hardware.keyenum.keyWheelDown);
     keyScreenshot = newOpt("keyScreenshot", Lang.optionKeyScreenshot,
+        KeySet());
+	keyUntrapMouse = newOpt("keyUntrapMouse", Lang.optionKeyUntrapMouse,
         KeySet());
 
     // Game keys
